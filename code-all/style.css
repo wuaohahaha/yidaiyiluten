@@ -1,0 +1,735 @@
+@import url('https://fonts.googleapis.com/css?family=Font+Name');
+@font-face {
+    font-family: 'FZ';
+    src: url('FZ.ttf');
+}
+
+*
+{
+  margin: -10px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'STXingkai', sans-serif;
+  font-weight: normal;
+
+}
+.banner
+{
+  position: relative;
+  width: 100%;
+  height:100vh;
+  background: url('background.jpg');
+  background-size:cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner #text
+{
+  position: relative;
+  font-size: 80px;
+  color: #fff;
+  letter-spacing: -10px;
+}
+.banner .clouds
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.banner .clouds img
+{
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: animate calc(5s * var(--i)) linear infinite;
+}
+@keyframes animate
+{
+  0%
+  {
+    opacity: 0;
+    transform: scale(1);
+  }
+  25%,75%
+  {
+    opacity: 1;
+  }
+  100%
+  {
+    transform: scale(3);
+  }
+}
+
+
+#footer{
+  height: 100px; /*设定footer高度*/
+  bottom: 0;
+  width: 100%; /*展开footer宽度*/
+  background-color: black;
+  line-height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+#tupian{
+  position: absolute;
+  right:30px;
+  top:30px;
+
+}
+
+.container1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.div{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+  height: 600px;
+  width:780px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div1{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 1.5em;
+  margin-block-end: 2.5em;
+}
+
+#strong{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 1.5em;
+  margin-block-end: 2.5em;
+}
+
+.div2{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 1.5em;
+}
+
+.div3{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+.div4{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 1.5em;
+  margin-block-end: 2.5em;
+}
+
+.div5{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  margin-block-start: 1em;
+}
+
+.div6{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 1em;
+}
+
+.div7{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 1em;
+  margin-block-end: 2.5em;
+}
+
+.div8{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-block-start: 2em;
+}
+
+.div9{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  margin-block-start: 1em;
+}
+
+.div10{
+  height: 100%;
+  width:100%;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  margin-block-start: 1em;
+  margin-block-end: 1.5em;
+}
+
+body
+{
+  background: #FFF;
+  padding-bottom: 0px;
+  overflow-x: hidden;
+}
+
+
+.night
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(140deg);
+}
+
+
+.night1
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(40deg);
+}
+
+
+.night2
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(140deg);
+}
+
+.night3
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(40deg);
+}
+
+.night4
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(150deg);
+}
+
+.star3
+{
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  height: 4px;
+  width: 100px;
+  background: linear-gradient(-45deg,#5F91FF,rgba(0,0,255,0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px #699BFF);
+  animation: tail 3s ease-in-out infinite,
+             Falling 3s ease-in-out infinite;
+}
+
+
+.star
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 4px;
+  width: 100px;
+  background: linear-gradient(-45deg,#F3F555,rgba(0,0,255,0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px #F6F84D);
+  animation: tail 3s ease-in-out infinite,
+             Falling 3s ease-in-out infinite;
+}
+
+@keyframes tail{
+  0%{
+    width: 0px;
+  }
+  30%{
+    width:100px;
+  }
+  100%{
+    width:0;
+  }
+}
+
+@keyframes Falling{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(300px);
+  }
+}
+
+.star::before, .star::after{
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  right:0;
+  height: 4px;
+  width:30px;
+  background: linear-gradient(-45deg,rgba(0,0,255,0),#F6F84D,rgba(0, 0, 255, 0));
+  border-radius: 100%;
+  transform: translateX(50%) rotateZ(45deg);
+  animation: shining 3s ease-in-out infinite;
+}
+
+.star3::before, .star3::after{
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  right:0;
+  height: 4px;
+  width:30px;
+  background: linear-gradient(-45deg,rgba(0,0,255,0),#5F91FF,rgba(0, 0, 255, 0));
+  border-radius: 100%;
+  transform: translateX(50%) rotateZ(45deg);
+  animation: shining 3s ease-in-out infinite;
+}
+
+@keyframes shining{
+  0%{
+    width:0px;
+  }
+  50%{
+    width:30px;
+  }
+  100%{
+    width:0;
+  }
+}
+
+.star::after{
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star3::after{
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+
+.star:nth-child(1){
+  top: calc(50% - 100px);
+  left: calc(50% - 250px);
+  animation-delay: 1s;
+}
+.star:nth-child(1)::before,.star:nth-child(1)::after{
+  animation-delay: 1s;
+}
+
+.star:nth-child(2){
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.2s;
+}
+.star:nth-child(2)::before,.star:nth-child(2)::after{
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(3){
+  top: calc(50% - 0px);
+  left: calc(50% - 150px);
+  animation-delay: 1.4s;
+}
+.star:nth-child(3)::before,.star:nth-child(3)::after{
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(4){
+  top: calc(50% - -50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.6s;
+}
+.star:nth-child(4)::before,.star:nth-child(4)::after{
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(5){
+  top: calc(50% - -100px);
+  left: calc(50% - 250px);
+  animation-delay: 1.8s;
+}
+.star:nth-child(5)::before,.star:nth-child(5)::after{
+  animation-delay: 1.8s;
+}
+
+
+.star3:nth-child(1){
+  top: calc(50% - 100px);
+  left: calc(50% - 250px);
+  animation-delay: 1s;
+}
+.star3:nth-child(1)::before,.star3:nth-child(1)::after{
+  animation-delay: 1s;
+}
+
+.star3:nth-child(2){
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.2s;
+}
+.star3:nth-child(2)::before,.star3:nth-child(2)::after{
+  animation-delay: 1.2s;
+}
+
+.star3:nth-child(3){
+  top: calc(50% - 0px);
+  left: calc(50% - 150px);
+  animation-delay: 1.4s;
+}
+.star3:nth-child(3)::before,.star3:nth-child(3)::after{
+  animation-delay: 1.4s;
+}
+
+.star3:nth-child(4){
+  top: calc(50% - -50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.6s;
+}
+.star3:nth-child(4)::before,.star3:nth-child(4)::after{
+  animation-delay: 1.6s;
+}
+
+.star3:nth-child(5){
+  top: calc(50% - -100px);
+  left: calc(50% - 250px);
+  animation-delay: 1.8s;
+}
+.star3:nth-child(5)::before,.star3:nth-child(5)::after{
+  animation-delay: 1.8s;
+}
+
+
+section
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+section1
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+}
+
+section h2
+{
+  margin-left: 600px;
+  font-size: 4em;
+  color: #FFF;
+  margin-bottom: 20px;
+}
+
+section h3
+{
+  margin-left: 400px;
+  font-size: 3em;
+  color: #202020;
+  margin-bottom: 20px;
+  font-family: 'FZ', sans-serif;
+  letter-spacing: 3px;
+}
+
+section h4
+{
+  position: relative;
+  font-size: 70px;
+  color: #fff;
+}
+
+section h5
+{
+  color: #6c757d;
+  font-family: 'Fangsong';
+  font-size: 1.5em;
+  line-height: 140%;
+
+}
+
+
+section h5 .b
+{
+  font-weight: bold;
+}
+
+section1 h5
+{
+  color: #6c757d;
+  font-family: 'Fangsong';
+  font-size: 1.5em;
+  line-height: 140%;
+
+}
+
+section h6
+{
+  color: #6c757d;
+  font-family: 'Fangsong';
+  font-size: 1.2em;
+  line-height: 130%;
+}
+
+
+section .container
+{
+  position: relative;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section:nth-child(even) .container
+{
+  flex-direction: row-reverse;
+}
+
+section .container .imgBX
+{
+  position: relative;
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.1);
+}
+section .container .imgBX img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX1
+{
+  position: relative;
+  width: 510px;
+  height: 640px;
+  overflow: hidden;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.1);
+}
+section .container .imgBX1 img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX2
+{
+  position: relative;
+  width: 627px;
+  height: 515px;
+  overflow: hidden;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.1);
+}
+section .container .imgBX2 img
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX3
+{
+  position: relative;
+  width: 519.26px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.1);
+}
+section .container .imgBX3 img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX4
+{
+  position: relative;
+  width: 600px;
+  height: 500px;
+  overflow: hidden;
+}
+section .container .imgBX4 img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX5
+{
+  position: relative;
+  width: 1200px;
+  height: 500px;
+  overflow: hidden;
+}
+section .container .imgBX5 img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX6
+{
+  position: relative;
+  width: 580px;
+  height:500px;
+  overflow: hidden;
+}
+section .container .imgBX6 img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .imgBX7
+{
+  position: relative;
+  width: 730px;
+  height:500px;
+  overflow: hidden;
+}
+section .container .imgBX7 img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section .container .content
+{
+  font-family: 'Fangsong', sans-serif;
+  position: absolute;
+  right: 0;
+  margin-top: 200px;
+  margin-bottom: 40px;
+  padding: 40px;
+  background: #fff;
+  z-index: 1;
+  max-width: 400px;
+  color: #202020;
+  box-shadow: 0 25px 35px rgba(0,0,0,0.1);
+  border-bottom: 6px solid #f2acac;
+}
+section:nth-child(even) .container .content
+{
+  left: 0;
+}

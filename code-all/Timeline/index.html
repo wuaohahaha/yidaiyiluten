@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)https://cdpn.io/cpe/boomboom/index.html?key=index.html-de47408c-a805-4c12-96e4-4796e3d7d305 -->
+<html lang="en" class=" -webkit-"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <title>CodePen Demo</title>
+
+  <meta name="robots" content="noindex">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+  <link rel="canonical" href="https://codepen.io/Fischaela/pen/NWNQKW">
+
+  
+  
+<style media="" data-href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}</style>
+
+  
+
+  
+<script src="./stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js.下载"></script>
+<script src="./iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js.下载"></script>
+<script src="./iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js.下载"></script>
+<script src="./iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js.下载"></script>
+<script src="./prefixfree.min.js.下载"></script>
+<style id="INLINE_PEN_STYLESHEET_ID">/* Variables */
+/* Fonts */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+/* Layout */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Styling */
+.timeline {
+  margin: 4em auto;
+  position: relative;
+  max-width: 46em;
+}
+.timeline:before {
+  background-color: black;
+  content: '';
+  margin-left: -1px;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  width: 2px;
+  height: 100%;
+}
+
+.timeline-event {
+  position: relative;
+}
+.timeline-event:hover .timeline-event-icon {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background-color: #e26f39;
+}
+.timeline-event:hover .timeline-event-thumbnail {
+  -moz-box-shadow: inset 40em 0 0 0 #e26f39;
+  -webkit-box-shadow: inset 40em 0 0 0 #e26f39;
+  box-shadow: inset 40em 0 0 0 #e26f39;
+}
+
+.timeline-event-copy {
+  padding: 2em;
+  position: relative;
+  top: -1.875em;
+  left: 4em;
+  width: 80%;
+}
+.timeline-event-copy strong {
+  font-weight: 700;
+}
+.timeline-event-copy p:not(.timeline-event-thumbnail) {
+  padding-bottom: 1.2em;
+}
+
+.timeline-event-icon {
+  -moz-transition: -moz-transform 0.2s ease-in;
+  -o-transition: -o-transform 0.2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: black;
+  outline: 10px solid white;
+  display: block;
+  margin: 0.5em 0.5em 0.5em -0.5em;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  width: 1em;
+  height: 1em;
+}
+
+.timeline-event-thumbnail {
+  -moz-transition: box-shadow 0.5s ease-in 0.1s;
+  -o-transition: box-shadow 0.5s ease-in 0.1s;
+  -webkit-transition: box-shadow 0.5s ease-in;
+  -webkit-transition-delay: 0.1s;
+  transition: box-shadow 0.5s ease-in 0.1s;
+  color: white;
+  font-size: 0.75em;
+  background-color: black;
+  -moz-box-shadow: inset 0 0 0 0em #ef795a;
+  -webkit-box-shadow: inset 0 0 0 0em #ef795a;
+  box-shadow: inset 0 0 0 0em #ef795a;
+  display: inline-block;
+  margin-bottom: 1.2em;
+  padding: 0.25em 1em 0.2em 1em;
+}
+</style></head>
+
+<body>
+  <ul class="timeline">
+  <li class="timeline-event">
+    <label class="timeline-event-icon"></label>
+    <div class="timeline-event-copy">
+      <p class="timeline-event-thumbnail">2021年</p>
+      <p><strong>12月3日	昆明-万象线开通</strong><br>中国昆明站内的复兴号“绿巨人”、老挝万象站内的“澜沧号”动车组列车缓缓开动，开启一段跨越山河、相互奔赴的旅程。</p>
+      <p><strong>12月4日	成渝-万象线开通</strong><br>成渝两地至老挝的货运时间将缩短至3天左右，大大降低企业的运输成本，货运效率也大幅提高。</p>
+      <p><strong>12月8日	南京-万象线开通</strong><br>载有76个标箱出口货物的“江苏号”中老铁路国际货运列车启程，是长三角地区开行的首趟中老铁路。</p>
+      <p><strong>12月13日	义乌-万象线开通</strong><br>首趟列车70个标箱满载小家电、机械配件、纺织用品、钾肥等货物。</p>
+      <p><strong>12月27日	玉溪-万象线开通</strong><br>首趟列车共有21只集装箱冷链货柜，整合了当地11户企业农产品出口货运需求。</p>
+    </div>
+  </li>
+  <li class="timeline-event">
+    <label class="timeline-event-icon"></label>
+    <div class="timeline-event-copy">
+      <p class="timeline-event-thumbnail">2022年</p>
+  <p><strong>1月6日	怀化-万象线开通</strong><br>满载怀化冰糖橙、双峰小农机、三一重工小型挖掘机等货物的国际班列从怀化出发后，将向西经过贵阳、六盘水、昆明等城市，从云南磨憨口岸出关后经老挝磨丁到达老挝万象。</p>
+       <p><strong>1月10日	澜湄快线开通</strong><br>较其他中老国际货运列车具有到货时间可控、通关和运行速度快等特点，是中国昆明与老挝万象间“客车化”的货运服务产品。</p>
+       <p><strong>3月2日	江津-万象线开通</strong><br>共运载37个集装箱，货值约400万元，包括化工品、建筑材料、通用机械、日用百货等。</p>
+       <p><strong>3月30日	宝鸡-万象线开通</strong><br>标志着陕西首趟中老铁路国际货运列车正式开行。</p>
+       <p><strong>4月21日	敦煌-万象-曼谷线开通</strong><br>是甘肃省首次通过中老国际铁路向境外直接出口本地产品，也是国内首发的石棉集装箱国际铁路联运列车。</p>
+       <p><strong>4月22日	西安-万象线开通、沈阳-万象线开通</strong><br>西安-万象线首次主要运输的是一批纺织品。列车从西安国际港站驶出，经云南磨憨口岸出境，预计5天左右抵达老挝万象。</p>
+       <p><strong>5月21日	首趟中老铁路“铁路快通”开通</strong><br>“铁路快通”即“铁路进出境快速通关”模式。运用“铁路快通”模式通关，能节约通关时间24小时，缩短整体运行时间1-2天。</p>
+       <p><strong>6月23日	首趟中老铁路旅游专列开通</strong><br>旅游专列首发仪式在昆明举行，“坐着火车游云南”活动正式开启。</p>
+       <p><strong>7月1日	中老泰正式互通</strong><br>北向连接中老铁路万象南站货场，南向连接既有老挝米轨铁路，由老中铁路有限公司投资建设，站内设置标准轨换装线1条、米轨换装线2条，可同时换装25辆泰国米轨铁路货车，年换装作业能力约80万吨。</p>
+      <p><strong>11月16日	达州-万象线开通</strong><br>是西部陆海新通道中老铁路首发，助力达州等地重点企业产品拓展国际市场。</p>
+    </div>
+  </li>
+  <li class="timeline-event">
+    <label class="timeline-event-icon"></label>
+    <div class="timeline-event-copy">
+      <p class="timeline-event-thumbnail">2023年</p>
+      <p><strong>4月13日	首列万象-昆明中老铁路国际旅客专列开通</strong><br>昆明至万象间可实现乘火车当日通达。</p>
+       <p><strong>4月25日	海安—琅勃拉邦国际货运列车化肥专列开通</strong><br>首趟列车70个标箱化肥的货运列车从铁路南京货运中心海安货运站启程。</p>
+       <p><strong>10月16日	中老中越铁路国际冷链货运班列双向首发</strong><br>两列满载着云南特色果蔬的冷链班列，同时从云南省玉溪市研和站驶出。</p>
+      <p><strong>……</strong></p>
+    </div>
+  </li>
+</ul>  
+  
+  
+
+
+</body></html>

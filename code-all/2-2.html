@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>货运量</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+        }
+        #main {
+            width: 100vw;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+</body>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/china.js"></script>
+<script>
+    var chart = echarts.init(document.getElementById('main'));
+    var data = [
+  { name: '上海', value: [121.48, 31.22, 4430], ripple: true},
+    { name: '上饶', value: [117.97, 28.45, 1100] },
+    { name: '东莞', value: [113.75, 23.04, 6368] },
+    { name: '临沂', value: [118.35, 35.05, 14938] },
+    { name: '义乌', value: [120.06, 29.32, 82224.5],ripple: true },
+    { name: '乌兰察布', value: [113.12, 40.98, 2300] },
+    { name: '乌鲁木齐', value: [87.68, 43.77, 4904] },
+    { name: '保定', value: [115.47, 38.87, 200] },
+    { name: '兰州', value: [103.73, 36.03, 100] },
+    { name: '北京', value: [116.40, 39.90, 272] },
+    { name: '南京', value: [118.78, 32.04, 19168] },
+    { name: '南昌', value: [115.89, 28.68, 3494] },
+    { name: '厦门', value: [118.10, 24.46, 5858] },
+    { name: '合肥', value: [117.27, 31.86, 41851.5] },
+    { name: '哈尔滨', value: [126.63, 45.75, 8894] },
+    { name: '唐山', value: [118.17, 39.63, 482] },
+    { name: '大连', value: [121.62, 38.92, 14730] },
+    { name: '天津', value: [117.20, 39.12, 5832] },
+    { name: '太原', value: [112.53, 37.87, 5664] },
+    { name: '奎屯', value: [84.90, 44.43, 3728] },
+    { name: '威海', value: [122.12, 37.52, 388] },
+    { name: '巴音郭愣', value: [86.15, 41.76, 196] },
+    { name: '广州', value: [113.27, 23.13, 52140] },
+    { name: '库尔勒', value: [86.15, 41.76, 1204] },
+    { name: '徐州', value: [117.29, 34.21, 27814] },
+    { name: '成都', value: [104.06, 30.67, 178156],ripple: true },
+    { name: '日照', value: [119.52, 35.42, 2390] },
+    { name: '柳州', value: [109.42, 24.33, 1100] },
+    { name: '武威', value: [102.63, 37.93, 392] },
+    { name: '武汉', value: [114.30, 30.59, 49787] },
+    { name: '沈阳', value: [123.43, 41.80, 51014],ripple: true },
+    { name: '济南', value: [117.00, 36.65, 50196] },
+    { name: '淄博', value: [118.05, 36.82, 1586] },
+    { name: '深圳', value: [114.07, 22.62, 20652.25] },
+    { name: '潍坊', value: [119.10, 36.62, 586] },
+    { name: '烟台', value: [121.39, 37.52, 778] },
+    { name: '白银', value: [104.18, 36.55, 192] },
+    { name: '石家庄', value: [114.52, 38.04, 27552] },
+    { name: '石河子', value: [86.04, 44.30, 1382] },
+    { name: '苏州', value: [120.62, 31.32, 38658] },
+    { name: '西安', value: [108.94, 34.34, 328191] , ripple: true},
+    { name: '赣州', value: [114.94, 25.85, 14588] },
+    { name: '赤峰', value: [118.88, 42.28, 800] },
+    { name: '连云港', value: [119.16, 34.59, 898] },
+    { name: '郑州', value: [113.62, 34.75, 86103] },
+    { name: '重庆', value: [106.55, 29.57, 256410.75] ,ripple: true},
+    { name: '金华', value: [119.64, 29.12, 30007.25] },
+    { name: '银川', value: [106.23, 38.49, 96] },
+    { name: '长春', value: [125.35, 43.88, 9000] },
+    { name: '长沙', value: [112.94, 28.23, 83712] },
+    { name: '阿克苏', value: [80.26, 41.17, 546] },
+    { name: '青岛', value: [120.38, 36.07, 41754] },
+    { name: '鹰潭', value: [117.05, 28.08, 588] },
+    { name: '洛阳', value: [112.44, 34.70, 388] },
+    { name: '枣庄', value: [117.57, 34.86, 200] },
+    { name: '衡阳', value: [112.61, 26.89, 3884] },
+    { name: '贵阳', value: [106.71, 26.58, 3368] },
+    { name: '南平', value: [118.18, 26.64, 1300] },
+    { name: '德阳', value: [104.40, 31.13, 7586] },
+    { name: '南充', value: [106.08, 30.78, 400] },
+    { name: '鄂尔多斯', value: [109.99, 39.81, 100] },
+    { name: '九江', value: [115.97, 29.71, 1062] },
+    { name: '德州', value: [116.29, 37.45, 300] },
+    { name: '巴彦淖尔', value: [107.39, 40.75, 896] },
+    { name: '呼和浩特', value: [111.73, 40.83, 1098] },
+    { name: '胡杨河', value: [84.95, 47.75, 506] },
+    { name: '博州', value: [82.07, 44.90, 301] },
+    { name: '泉州', value: [118.68, 24.88, 1388] },
+    { name: '泸州', value: [105.39, 28.91, 892] },
+    { name: '江门', value: [113.08, 22.58, 182] },
+    { name: '内江', value: [105.04, 29.59, 84] },
+    { name: '龙岩', value: [117.03, 25.08, 688] },
+    { name: '绵阳', value: [104.73, 31.48, 2500] },
+    { name: '福州', value: [119.30, 26.08, 500] },
+    { name: '广元', value: [105.83, 32.43, 290] },
+    { name: '铁岭', value: [123.85, 42.30, 400] },
+    { name: '萍乡', value: [113.85, 27.62, 300] },
+    { name: '遂宁', value: [105.59, 30.52, 100] }
+    ];
+    
+ chart.setOption({
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                return params.name + "<br/>发送箱: " + params.value[2] + "  TEU ";
+            }
+        },
+        geo: {
+            map: 'china',
+            roam: false,
+            label: {
+                emphasis: {
+                    show: false,
+                    
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: 'rgba(0, 0, 0, 0.2)',
+                    color:'rgba(128, 128, 128, 0.2)',
+                },
+                emphasis: {
+                    areaColor: 'rgba(128, 128, 128, 0.2)', 
+                    
+                }
+            },
+            tooltip: {
+            show: true, // 隐藏默认的 tooltip
+        },
+        },
+        series: [
+            {
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: data.filter(function (item) {
+                    // 过滤掉不需要涟漪效果的数据点
+                    return !item.ripple;
+                }),
+                symbolSize: function (val) {
+                    return val[2] / 2000; // 根据数据值决定气泡大小，您可以根据需要调整系数
+                },
+                encode: {
+                    value: 2
+                },
+                label: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                },
+                itemStyle: {
+                normal: {
+                   color: 'rgba(35, 166, 220)',
+                }
+                },
+                emphasis: {
+                    label: {
+                        show: true
+                    }
+                }
+            },
+            {
+                type: 'effectScatter', // 使用effectScatter类型
+                coordinateSystem: 'geo',
+                data: data.filter(function (item) {
+                    // 仅选择具有涟漪效果的数据点
+                    return item.ripple;
+                }),
+                symbolSize: function (val) {
+                    return val[2] / 4000; // 同样根据数据值决定涟漪气泡大小
+                },
+                encode: {
+                    value: 2
+                },
+                showEffectOn: 'render', // 设置为'render'表示渲染时显示涟漪效果
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                label: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: true
+                },
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: '#fff',
+                    color: 'rgba(35, 166, 220, 0.7)',
+                    
+                    
+                },
+                emphasis: {
+                    scale: true
+                },
+                zlevel: 1
+            }
+        ]
+    });
+
+    window.addEventListener('resize', chart.resize);
+</script>
+</html>
+
+
+
+
+

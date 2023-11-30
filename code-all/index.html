@@ -1,0 +1,637 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta content="telephone=no" name="format-detection" />
+	    <meta content="email=no" name="format-detection" />
+	    <title>一带一路</title>
+		<script src="js/jquery-1.7.2.min.js" language="javascript"></script>
+		<script src="js/d3.min.js" language="javascript"></script>
+		<script src="js/jquery.color.js" language="javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+		
+
+	</head>
+	<style>
+		body,button,dd,dl,dt,form,h1,h2,h3,h4,h5,h6,hr,input,li,ol,p,td,textarea,th,ul{margin:0;padding:0}
+		body{
+			font-size:16px; 
+			font-family: '微软雅黑','PingFang SC','Droidsansfallback';
+			color:#000;
+			background:#fff; 
+			background-image:url("");
+			backface-repeat:no-repeat;
+			overflow-x: hidden; }
+		.body-bg img{}
+		img{vertical-align:top;}
+		a img{border:none;}
+		a{color:#5d3a88;text-decoration:none;outline-style:none;}
+		var,em{font-style:normal}
+		ul,li{list-style:none}
+		.mobile-only{display: none}
+		.pc-only{display: block;}
+		.cover {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      text-align: center;
+      background-image: url("https://public.flourish.studio/uploads/653657/a9f0493e-a75a-4fa7-ba6b-e38a78239a1a.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-color: #fff;
+      color: #fff;
+      font-size: 50px;
+      line-height: 500px;
+    }
+
+.cover-bg{position: absolute; z-index: -1; top:0; left:0; width: 1200px; height: auto;}
+		.cover-bg img{position: absolute; display: none;}
+        
+/* 云层样式 */
+.cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+        /* 创建云层动画 */
+        @keyframes floatCloudRight {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(1200px); }
+        }
+
+        @keyframes floatCloudLeft {
+            0% { transform: translateX(1200px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* 为每个云层应用动画和位置 */
+        .cloud:nth-child(1) {
+            bottom: 0;
+            left: 400px;
+            animation-name: floatCloudRight;
+            animation-delay: 0s;
+        }
+
+        .cloud:nth-child(2) {
+            bottom: 0px;
+            left: 400px;
+            animation-name: floatCloudRight;
+            animation-delay: 0s;
+        }
+
+        .cloud:nth-child(3) {
+            top: 100px;
+            left: 400px;
+            animation-name: floatCloudLeft;
+            animation-delay: 2s;
+        }
+
+        .cloud:nth-child(4) {
+            top: 100px;
+            left: 400px;
+            animation-name: floatCloudLeft;
+            animation-delay: 1s;
+        }
+
+        /* 为云层应用样式和背景图片 */
+        .cloud-1 {
+            width: 1500px;
+            height: 800px;
+            background-image: url('cloud-01.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: floatCloudRight 10s linear infinite; /* 应用云层动画 */
+            z-index: 1;
+        }
+
+        .cloud-2 {
+            width: 1200px;
+            height: 800px;
+            background-image: url('cloud-02.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: floatCloudRight 10s linear infinite; /* 应用云层动画 */
+            z-index: 2;
+        }
+
+ 
+        
+        
+
+
+
+		.content-div{padding-top: 10px; padding-bottom: 10px; position: relative; width: 100%; height: auto}
+		.content-wrap{width: 800px; margin:0 auto; font-size: 16px; line-height: 28px; text-align: left;}
+		.content-wrap p{padding-top: 15px; padding-bottom: 15px;color: #000;}
+        .content-wrap .zhong{color: #000;text-align: justify; text-align-last: left;}
+		.content-wrap .subtitle span{font-weight: 900}
+		.content-wrap .subtitle{color:#000; font-size: 30px; text-align: center; }
+		.content-wrap .subtitle1 span{border-bottom: 2px #53cbc3 solid; padding-bottom: 4px; font-weight: 900}
+		.content-wrap .subtitle1{color:#000; font-size: 20px; text-align: center; }
+        .content-wrap .subtitle2 span{border-bottom: 1px #53cbc3 solid; padding-bottom: 4px; font-weight: 900}
+		.content-wrap .subtitle2{color:#000; font-size: 15px; text-align: center; }
+		.content-wrap .caption{color:#333; font-size: 12px; line-height: 20px; width: 70%; margin:0 auto;text-align: center;}
+		.content-wrap .caption1{color:#333; font-size: 12px; line-height: 20px;text-align: center; width: 70%; margin:0 auto;}
+		.chart-div{width: 900px; height: 700px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("https://public.flourish.studio/uploads/653657/2628640c-395c-44cb-b196-e0a86e387a44.png"); background-repeat: no-repeat; background-size:100%,100%;}
+        .chart-div1{width: 850px; height: 500px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div2{width: 800px; height: 500px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("https://public.flourish.studio/uploads/653657/b932f8d2-dee2-42d1-88a4-2f0f64802dd1.png"); background-repeat: no-repeat; background-size:100%,100%;}
+		.chart-div3{width: 900px; height: 450px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div4{width: 900px; height: 500px; position: relative; margin: 0 auto; overflow: hidden;  background-image: url("https://public.flourish.studio/uploads/653657/887053b1-16ba-4c5c-a0e4-a72bcb5b3167.png"); background-repeat: no-repeat; background-size:100%,100%;}
+		.chart-div5{width: 1200px; height:600px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div6{width: 600px; height: 650px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("https://public.flourish.studio/uploads/653657/71dd8a9a-195c-454a-afa3-4a1ae12a3b18.png"); background-repeat: no-repeat; background-size:100%,100%;}
+		.chart-div7{width: 900px; height: 800px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("https://public.flourish.studio/uploads/653657/a0918dd0-740c-4b24-b16f-cca7bd733561.png"); background-repeat: no-repeat; background-size:100%,100%;}
+		.chart-div8{width: 900px; height: 450px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-div12{width: 900px; height: 590px; position: relative; margin: 0 auto; overflow: hidden; background-image: url("https://public.flourish.studio/uploads/653657/b4b6c86b-6fdc-4485-b1ce-7a6d07c5c446.png"); background-repeat: no-repeat; background-size:100%,100%;}
+        .chart-div9{width: 850px; height: 400px; position: relative; margin: 0 auto; overflow: hidden; }
+        .chart-div10{width: 900px; height: 700px; position: relative; margin: 0 auto; overflow: hidden; }
+        .chart-div11{width: 900px; height: 600px; position: relative; margin: 0 auto; overflow: hidden; }
+        .chart-div13{width: 900px; height: 600px; position: relative; margin: 0 auto; overflow: hidden; }
+		.chart-scroll-wrap{width: 990px; height: 500px; position: relative; margin: 0 auto; overflow-x: scroll; }
+		.chart-scroll-horizontal{width: 990px; height: 100%; position: relative; background-image: url(images/youpiao1.jpg); opacity: 1}
+        .chart-scroll-wrap .tip{position: absolute; z-index:1000; background-image: url(images/scroll-tip.png); width: 120px; height:80px; background-size: 100% auto; top:200px;}
+		.chart-scroll-wrap .tip .hand{animation:moveLeft 2s infinite linear; -webkit-animation:moveLeft 2s infinite linear; position: absolute;}
+        .iframe {
+    position: absolute;
+    top: 0;
+    left: -30;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transition: opacity 0.5s ease;
+}
+        .highlight {
+      transition: color 0.5s; /* 添加颜色变化的过渡效果 */
+            font-weight: 0.5s;
+    }
+		@keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+		@-webkit-keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+		
+		.credits{width: 100%; float: left; position: relative; text-align: center; font-size: 12px; line-height: 18px; padding-bottom: 40px; padding-top: 30px }
+		.credits p{width: 500px; margin: 0 auto; padding-bottom: 7px; font-weight: 400; color:#999;}
+		.credits p b{font-weight: 900}
+        .credits p.a{color:#999;text-align: left;}
+		.credits p.first{border-top: #999 1px solid; height: 30px; width: 640px;}
+        
+    
+
+		
+		@media (max-width: 640px){
+			body{overflow-x: hidden;}
+			.mobile-only{display: block}
+			.pc-only{display:none;}
+			.cover{width: 100%; height: 30%; position: relative; text-align: center; background-image: url("https://public.flourish.studio/uploads/653657/a9f0493e-a75a-4fa7-ba6b-e38a78239a1a.jpg"); background-repeat: no-repeat; background-size:100%; background-color: #fff; color: #fff; font-size: 50px; line-height: 700px}
+		    .cover-bg{position: absolute; z-index: -1; top:0; left:0; width: 1200px; height: auto;}
+		    .cover-bg img{position: absolute; display: none;}
+			.content-wrap{width: 90%; margin:0 auto; font-size: 16px; line-height: 28px; text-align: justify;overflow-x: hidden;}
+            .content-wrap .subtitle span{font-weight: 900}
+		.content-wrap .subtitle{color:#000; font-size: 20px; text-align: center; }
+		.content-wrap .subtitle1 span{border-bottom: 2px #53cbc3 solid; padding-bottom: 4px; font-weight: 900}
+		.content-wrap .subtitle1{color:#000; font-size: 15px; text-align: center; }
+        .content-wrap .subtitle2 span{border-bottom: 1px #53cbc3 solid; padding-bottom: 4px; font-weight: 900}
+		.content-wrap .subtitle2{color:#000; font-size: 12px; text-align: center; }
+			.chart-div{width: 85%; height:40%;overflow-x: hidden; margin:0 auto;background-image: url("https://public.flourish.studio/uploads/653657/2628640c-395c-44cb-b196-e0a86e387a44.png"); background-repeat: no-repeat; background-size:100%,100%;}
+			.chart-div2{width: 90%;height:35%;overflow-x: hidden; margin:0 auto; background-image: url("https://public.flourish.studio/uploads/653657/b932f8d2-dee2-42d1-88a4-2f0f64802dd1.png"); background-repeat: no-repeat; background-size:100%,100%;}
+			.chart-div1{width: 90%;height:60%;overflow-x: hidden; margin:0 auto;}
+			.chart-div3{width: 90%;height:45%;position: relative; margin: 0 auto; overflow: hidden;}
+			.chart-div4{width: 90%;height:40%;position: relative;overflow-x: hidden; margin:0 auto; background-image: url("https://public.flourish.studio/uploads/653657/887053b1-16ba-4c5c-a0e4-a72bcb5b3167.png"); background-repeat: no-repeat; background-size:100%,100%;}
+			.chart-div5{width: 100%;height:50%;overflow-x: hidden; margin:0 auto;}
+			.chart-div6{width: 90%;height:80%;overflow-x: hidden; margin:0 auto;background-image: url("https://public.flourish.studio/uploads/653657/71dd8a9a-195c-454a-afa3-4a1ae12a3b18.png"); background-repeat: no-repeat; background-size:100%,100%;}
+			.chart-div7{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;background-image: url("https://public.flourish.studio/uploads/653657/a0918dd0-740c-4b24-b16f-cca7bd733561.png"); background-repeat: no-repeat; background-size:100%,100%;}
+			.chart-div12{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;background-image: url("https://public.flourish.studio/uploads/653657/b4b6c86b-6fdc-4485-b1ce-7a6d07c5c446.png"); background-repeat: no-repeat; background-size:100%,100%;}
+			.chart-div8{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;}
+            .chart-div9{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;}
+            .chart-div10{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;}
+            .chart-div11{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;}
+            .chart-div13{width: 90%;height:45%;overflow-x: hidden; margin:0 auto;}
+			.chart-scroll-wrap{width: 90%; margin:0 auto;}
+			.chart-scroll-wrap{ overflow-x: scroll; }
+			.credits p{width: 100%; font-size: 12px}
+			.credits p.first{width: 80%;padding-left: 10%}	
+
+			.chart-scroll-wrap .tip{position: absolute; z-index:1000; background-image: url(images/scroll-tip.png); width: 120px; height:80px; background-size: 100% auto; top:200px;}
+			.chart-scroll-wrap .tip .hand{animation:moveLeft 2s infinite linear; -webkit-animation:moveLeft 2s infinite linear; position: absolute;}
+            .iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transition: opacity 0.5s ease;
+}
+            .highlight {
+      transition: color 0.5s; /* 添加颜色变化的过渡效果 */
+                font-weight: 0.5s;
+    }
+			@keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+			@-webkit-keyframes moveLeft{
+				0%{right:-20px;}
+				70%{right:60px;}
+				100%{right:60px;}
+			}
+			
+		}
+
+      #scrolly {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background-color: transparent;
+        padding: 1rem;
+        flex-direction: row-reverse;
+
+      }
+
+
+      article {
+        position: relative;
+        max-width: 20rem;
+        margin-left: 100px;
+      }
+
+      figure {
+        position: -webkit-sticky;
+        position: sticky;
+        width: 100%;
+        margin: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+
+      figure p {
+        text-align: center;
+        padding: 1rem;
+        position: absolute;
+        top: 50%;
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 8rem;
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .step {
+        margin: 0 auto 2rem auto;
+        color: #000000;
+        background-color: rgba(255, 255, 255, 0.5);
+        font-size: 17px;
+        line-height: 180%;
+        padding: 2em;
+        pointer-events: none;
+        box-shadow:0px 0px  8px 3px #bcbcbc;
+      }
+    
+      .invisible {
+        visibility: hidden;
+      }
+
+      .step:last-child {
+        margin-bottom: 0;
+      }
+
+      .step.is-active {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #000000;
+      }
+
+	</style>
+	<body>
+		
+	<!--头图部分-->	
+	<div class="cover">	
+        <div class="clouds">
+      <div class="cloud-1"></div>
+      <div class="cloud-2"></div>
+      <div class="cloud-3"></div>
+      <div class="cloud-4"></div>
+    </div>
+	</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p></p>
+			<p class="zhong">在漫长的人类文明交往历史中，贯穿东西、连接欧亚的<span class="highlight">古丝绸之路</span>熠熠生辉，从商品流通到文化交融，从经济互利到人文互启，在友好交往的和平理念下，沿线各国人民共同谱写出一幅繁荣壮丽的史诗篇章。</p>
+			<p class="zhong">2013年秋，习近平总书记提出<span class="highlight">共建“丝绸之路经济带”和“21世纪海上丝绸之路”</span>，这份共建“一带一路”的倡议，令跨越千年的悠悠驼铃和海上的猎猎破风声再度响起，也让这条象征着开放与发展的欧亚经济大走廊在新时代复苏，成为中国与世界的互利共赢之路。</p>
+            <p class="zhong">十年来，在各方的共同努力下，共建<span class="highlight">“一带一路”</span>始终坚持共商共建共享原则，秉持开放、绿色、廉洁理念，以高标准、可持续、惠民生为目标，取得了实打实、沉甸甸的重大历史性成就。</p>
+			<p></p>
+		</div>
+
+	</div>
+	
+	<!--第一部分-->	
+
+	<div class="content-wrap">
+			<p class="subtitle"><span>01</span></p>
+			<p class="subtitle"><span>「六廊六路多国多港」彰显中国担当</span></p>
+		</div>
+		<div class="content-div">
+		<div class="content-wrap">
+			
+		</div>
+	</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p class="zhong">“一带一路”的共建以互连为基础，其基础设施的“硬联通”建设是区域协同发展的重中之重，因此我国提出<span class="highlight">“六廊六路多国多港”</span>的主体框架思路，通过10年的践行将理念转化为行动，将愿景转变为现实。当前，“六廊六路多国多港”的基本架构已初具规模，基本形成了“陆海天网”四位一体的互联互通格局，为促进经贸和产能合作、加强文化交流和人员往来奠定了坚实基础。</p>
+			<p class="zhong">其中，“六廊”是指中蒙俄、新亚欧大陆桥、中国——中亚——西亚、中国——中南半岛、中巴、孟中印缅六条国际经济合作走廊；“六路”即铁路、公路、水路、空路、管路、信息高速路互联互通路网；“多国”是作为合作重点的若干重要国家；“多港”指代构建若干海上支点的重要港口。“六廊六路多国多港”的建设为建立和加强沿线各国伙伴关系、畅通<span class="highlight">亚欧大市场起到重要作用。</span></p>
+		</div>
+
+	</div>
+	<!--1-1-->
+    <div class="chart-div2" >
+		</div>
+	<div class="content-div">
+		<div class="content-wrap">
+			<p class="zhong">建设的脚步未曾停歇，十年来，为落实“一带一路”互联互通的整体格局，中国在共建国家承包工程累计签订合同额<span class="highlight">2万亿美元</span>，完成营业额<span class="highlight">1.3万亿美元</span>，工程涉及境外工程投融资、设计咨询、设备采购、建设施工、运营管理等多个方面。庞大的工程规划有效降低了共建国家参与国际贸易的成本，提高了沿线各国接入世界经济的能力和水平，激发了区域经济乃至全球贸易的更大发展潜力、更强发展动力。</p>
+			<p class="zhong">中国企业在“一带一路”建设中不断打造“质量好、负责任”的闪亮名片，建设起一个个“国家地标”、一项项“民生工程”、一座座“合作丰碑”，为带动中国产品技术服务“走出去”和深化国际产能合作作出贡献，彰显了以<span class="highlight">和平合作、开放包容、互学互惠、互利共赢</span>为核心的丝路精神。</p>
+		</div>
+	</div>
+	<!--1-2-->
+		<div class="chart-div7">
+        </div>
+        <div class="content-wrap">
+			<p class="zhong">十年磨剑，于朝夕间争渡，从广袤土地到浩渺海洋，从脚下大陆到头顶星空，共建“一带一路”的倡议在今天已然结出累累硕果。在每一个平凡的日子，上万旅客登上雅万高铁便捷出行，近千吨货物经由瓜达尔港湾运送各地，中白工业园不断吸引国际合作项目，阿尔及利亚一号卫星为当地通信昼夜服务……共建“一带一路”倡议思想之深邃、行动之务实，打造了今天逐渐完善的“六廊六路多国多港”总框架，塑造了中国与共建国家<span class="highlight">“硬联通”</span>的格局，创造了各国人民之间<span class="highlight">“心联通”</span>的基础，让“一带一路”的“朋友圈”越来越大，迈向和平发展、合作共赢道路的脚步愈加坚实。</p>
+		</div>
+    <!--1-3-->
+    
+		<div class="chart-div3">
+<iframe src='https://flo.uri.sh/visualisation/15895842/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'></div>
+		</div>
+	<div class="content-wrap">
+			<p class="caption1">六廊六路</p>
+		</div>
+        
+		<div class="content-wrap">
+			<p class="zhong">正所谓“道路通，百业兴”，第三届“一带一路”国际合作高峰论坛开幕式主旨演讲中提及，“奔行在铁路上的列车，驰骋在公路上的汽车，联通各国的空中航班，劈波斩浪的货轮，快捷方便的数字电商，成为新时代国际贸易的驼铃、帆影”。</p>
+			<p class="zhong">“一带一路”所着力构建的，就是以经济走廊为引领，以大通道和信息高速公路为骨架，以铁路、公路、机场、港口、管网为依托，涵盖陆、海、天、网的全球互联互通网络。由此，让我们以“一带一路”陆路运输与海上运输的标志性项目为回望的基点，回顾“一带一路”所贯彻践行的互利共赢之路。</p>
+            <p></p>
+		</div>
+	</div>
+		
+	<!--第二部分-->				
+	<div class="content-div">
+		<div class="content-wrap">
+			<p class="subtitle"><span>02</span></p>
+			<p class="subtitle"><span>
+				陆路运输：穿越万里的“钢铁大动脉”</span></p>
+		</div>
+		<div class="content-wrap">
+			<p class="zhong">十年建设以来，“一带一路”合作从<span class="highlight">“大写意”进入“工笔画”</span>阶段，把规划图转化为实景图，一批批陆路运输的标志性项目于沿线各国落地生根，共同构成亚欧大陆上穿越万里的<span class="highlight">“钢铁大动脉”</span>，为“一带一路经济带”的交通运输发展提供源源不断的动力和支持。</p>
+            </div>
+        <div class="content-wrap">
+            
+			<p class="subtitle1"><span>🚆 往来不息的“钢铁驼队”——“中欧班列”</span></p>
+		</div>
+        <div class="content-wrap">
+            <p class="zhong">中欧班列是是依托亚欧大陆桥，按照固定线路、班期开行，运行于中国与欧洲以及“一带一路”沿线相关国家间的铁路国际联运列车。</p>
+			<p class="zhong">作为共建“一带一路”的旗舰项目和标志性品牌，中欧班列的开行列数从运行之初的不到20列发展为2022年的<span class="highlight">1.6万列</span>。其间数百倍的增长展现了这支“钢铁驼队”惊人的发展空间。10年来，中欧班列累计开行<span class="highlight">7.7万列</span>，通达欧洲25个国家的<span class="highlight">217个城市</span>，已成为国际经贸合作的重要桥梁。</p>
+
+		</div>
+	</div>
+	<!--2-1-->	
+	<div class="chart-div" >
+		</div>		
+	<div class="content-div">
+		<div class="content-wrap">			
+			<p class="zhong">织线成网，驰而不息，共建城市作为“一带一路”建设的重要节点，在中欧班列这组<span class="highlight">“黄金列车”</span>的连接下，既是共建者又是受益者。若干中国城市亦积极参与其中，成都、西安、沈阳等城市相继成为中欧班列的始发站，其星罗棋布的地理位置让遍及全国的城市枢纽连点成面，共同构成中欧班列多线齐发的<span class="highlight">“强联通”</span>贸易格局。</p>
+			
+		</div>
+		<div class="content-wrap">
+			<p class="subtitle2"><span>中欧班列2022年各城市运输量</span></p>
+		</div>
+	</div>
+	<!--2-2-->		
+	<div class="chart-div5";>
+		<iframe id="iframe1" class="iframe" src="2-2.html"></iframe>
+		</div>
+	<div class="content-wrap">
+			<p class="caption">数据来源：中欧班列网  <br>
+			鼠标悬停在气泡上可查看具体数值</p>
+		</div>
+	<div class="content-div">
+		<div class="content-wrap">			
+			<p class="zhong">以义乌这座向来有享有“小商品之都”美称的城市为例，义乌成为中欧班列的战略支点，一方面让“义新欧”的多条中欧班列线路得以开设，进一步强化了中欧班列的贸易通道属性，另一方面也为城市本身带来了经济、文化等方面的溢出效应，使义乌<span class="highlight">成为通达四海、买卖全球的“世界货地”。</span></p>
+		</div>
+		<div class="content-wrap">
+			<p class="subtitle1"><span>🚆 开放合作的“黄金路”——中老铁路</span></p>
+		</div>
+	</div>
+    <div class="content-div">
+		<div class="content-wrap">			
+			<p class="zhong"><span class="highlight">一条铁路连接两国多地，</span>2021年12月3日，历时5年修建的中老铁路正式通车，这标志着中国与老挝两国的互联互通实现了跨越式的发展，“一带一路”又一项惠民工程在共商共建共享原则下顺利落地。中老铁路作为老挝“变陆锁国为陆联国”战略对接的重要项目，一经开通就承担起跨境运输的重要物流任务。</p>
+			<p class="zhong">两年来，其运输货物已逐渐由初期的化肥、百货扩展至电子产品、光伏产品、冷链水果等100多种品类，<span class="highlight">运营时速达160公里，</span>实现了对泰国、缅甸、马来西亚等多个周边国家和地区的辐射。中老铁路实现了老挝人民感受现代化铁路的梦想，其不断增长的货运量和客运量也为老挝的社会进步和经济发展注入新的活力。</p>
+		</div>
+        <div class="content-wrap">
+			<p class="subtitle2"><span>中老铁路开通以来，货运和客运量持续增长</span></p>
+		</div>
+	</div>
+	<!--2-3-->	
+    <div class="chart-div4";>
+		</div>
+	<div class="content-div">
+			<div class="content-wrap">			
+			<p class="zhong">中老铁路是共建“一带一路”倡议提出后，首条以中方为主投资建设、全线采用中国技术标准、使用中国设备并与中国铁路网直接联通的国际铁路。由于建设体量庞大、沿线地质地貌复杂，截至正式通车时，中老铁路全程共建有<span class="highlight">167座隧道、301座桥梁，</span>真正意义上做到了<span class="highlight">为惠及民生而“逢山开路、遇水架桥”。</span></p>
+            <p class="zhong">如今，这条开放合作的“黄金路”，仍在以十足的发展潜力进行拓展，为越来越多连通区域带去发展新契机，展现了中国帮助“一带一路”沿线国家和地区破解条件局限、走向发展之路的命运共同体精神。</p>
+		</div>
+	</div>	
+    <div class="content-wrap">
+			<p class="subtitle2"><span>中老铁路各段开通时间一览表</span></p>
+		</div>
+    <div class="chart-div5";>
+		<iframe id="iframe1" class="iframe" src="./Timeline/index.html"></iframe>
+		</div>
+	
+		
+	<!--第三部分-->	
+	<div class="content-div">
+		<div class="content-wrap">
+            <p></p>
+			<p class="subtitle"><span>03</span></p>
+			<p class="subtitle"><span>海路运输：贯连古今的“海上新丝路”</span></p>
+		</div>
+	</div>
+	<div class="content-div">
+			<div class="content-wrap">			
+			<p class="zhong">海上丝绸之路兴起于秦汉，鼎盛于宋元，其来往范围覆盖了大半个地球，是古代东西方文化经济交流的重要通道之一。2013年10月，习近平总书记在出访东南亚国家期间提出共同建设“21世纪海上丝绸之路”，<span class="highlight">让这条贯连古今的海上丝路在新时代又焕发出勃勃生机。</span>近十年来，海上丝绸之路的进出口贸易指数（以2015年3月为基期，基点为100）总体呈现上升趋势，可见“海上新丝路”为促进全球贸易发展提供了新的平台。</p>
+		</div>
+	</div>
+	<!--3-1-->	
+	<div class="chart-div13" >
+		<iframe src='https://flo.uri.sh/visualisation/15903850/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+		</div>
+	<div class="content-div">
+			<div class="content-wrap">	
+			<p class="subtitle1"><span>🚢  “世界第一大港”——宁波舟山港</span></p>
+		</div>
+            <div class="content-wrap">	
+			<p class="zhong">在中国大陆的海岸线中部、“丝绸之路经济带”和“21世纪海上丝绸之路”的交汇点上，“世界第一大港”宁波舟山港坐落于此，其货物吞吐量连续十四年位居世界第一，<span class="highlight">连接着超过200个国家和地区的600多个港口。</span>为深度融入“一带一路”，这十年来宁波舟山港持续加大对共建国家航线航班的开发力度，如今“一带一路”航线已增至<span class="highlight">129条，</span>“一带一路”2022年箱量达<span class="highlight">1320万标准箱，</span>二者均占港口航线、箱量总量的四成以上。</p>
+		</div>
+	</div>
+	<!--3-2-->	
+	<div class="chart-div6" >
+		</div>	
+	<div class="content-div">
+			<div class="content-wrap">			
+			<p class="zhong">宁波舟山港是中国对外开放的一类口岸，具有连接中外的天然属性，近年来宁波舟山港<span class="highlight">累计与30多个“一带一路”共建国家港口建立了友好港、姊妹港关系，</span>不断扩大的“朋友圈”反映出宁波舟山港与世界港航伙伴的“心联通”，是促进港航命运共同体的生动实践。</p>
+			<p class="zhong">此外，为提高“一带一路”运输效能，宁波舟山港已开通<span class="highlight">100条</span>集装箱海铁联运线路，业务范围涵盖<span class="highlight">16个</span>省（市、自治区）、<span class="highlight">64个</span>地级市，基本形成了北接古丝绸之路、中汇长江经济带、南联千里沪昆线的三大物流通道，让海上丝路的繁荣贯通古今。</p>
+				<p></p>
+		</div>
+        <div class="content-wrap">	
+			<p class="subtitle1"><span>🚢  “扼守通道之地”——比雷埃夫斯港</span></p>
+		</div>
+	</div>	
+		
+    
+    <div class="content-div">
+			<div class="content-wrap">			
+			<p class="zhong">比雷埃夫斯，在希腊语中意为“扼守通道之地”，作为世界历史最悠久的港口之一，比雷埃夫斯港具有得天独厚的水文条件，<span class="highlight">是一带一路“蓝色经济通道”上不可或缺的深水良港，</span>也是中国企业在海外全资拥有的第一家港口。</p>
+			<p class="zhong">2008年6月，中国远洋运输集团旗下公司中标比港二号、三号集装箱码头35年特许经营权，自2009年10月负责经营；2016年，中远海运集团完成对比雷埃夫斯港务局（PPA）67%股权的收购，接手一号码头。</p>
+				<p></p>
+		</div>
+	
+	</div>
+	<!--3-3-->
+	<div class="chart-div12">
+        	</div>	
+		
+       <div class="content-div">
+			<div class="content-wrap">			
+			<p class="zhong">从正式接手比雷埃夫斯港起，中远海运集团就对其进行了一系列的改造升级，使这座古老港口迎来扭亏为盈的“新生”。到2022年，比雷埃夫斯港口公司的每股分红已经上涨至2016年收购之前的十倍，其营业总额和净利润也在不断实现攀升。</p>
+			<p class="zhong">当前，比雷埃夫斯港已成为中欧陆海快线的起点，是中希共建“一带一路”的典范项目，在地中海、欧洲乃至全球航运格局中占据日益重要的位置。</p>
+				<p></p>
+		</div>
+	</div>	
+    
+
+	<!--第四部分-->	
+    	<div class="content-div">
+		<div class="content-wrap">
+			<p class="subtitle"><span>04</span></p>
+			<p class="subtitle"><span>“一带一路”：构建人类命运共同体重大实践</span></p>
+		</div>
+	</div>
+    <div class="content-div">
+			<div class="content-wrap">			
+			<p class="zhong"><span style="font-weight: bold; color:#23a6dc">协和万邦，“一带一路”引领区域协同发展合作共赢。</span>十年间，“一带一路”这一长周期、跨国界、系统性的世界工程、世纪工程给世界带来了引人注目的深刻变化，吸引了大量认同中国主张的同道者偕行。截至2023年10月，中国已与152个国家和地区签署了共建“一带一路”合作协议，不断扩大的“朋友圈”充分表明，“一带一路”是着眼人类前途命运、顺应国际社会期待的互利共赢之路。</p>
+				<p></p>
+		</div>
+	</div>	
+    <div class="content-wrap">
+			<p class="subtitle2"><span>"一带一路"朋友圈逐步扩大</span></p>
+		</div>
+        <div class="chart-div5";>
+		<iframe id="iframe1" class="iframe" src="4-2.html"></iframe>
+		</div>
+    <div class="content-wrap">
+			<p class="caption">数据来源：根据“一带一路网”公开资料整理所得  <br>
+			鼠标悬停在时间轴或不同国家区域可查看具体加入时间，时间轴也可自行滑动</p>
+		</div>
+    
+    
+	<div class="content-div">
+		<div class="content-wrap">
+			<p class="zhong"><span style="font-weight: bold; color:#23a6dc">亲仁善邻，“一带一路”回应人民幸福生活美好愿望。</span>十年来，共建“一带一路”倡议推动共建国家和地区共享机遇、共谋发展、共同繁荣，其基础设施互联互通的“硬联通”和政策对接规则互通的“软联通”促进了共建国家人民的“心联通”。“欧亚经济联盟”“光明之路”“中间走廊”等一批政策性成果的接连涌现，为沿线各国发展提供了更多可能，回应了各国人民对共同发展的追求、对美好生活的向往。</p>
+		</div>
+	</div>
+    <div class="content-wrap">
+			<p class="subtitle2"><span>"一带一路"参与国家人均收入变化数据库</span></p>
+		</div>
+     <div class="chart-div10" >
+        <iframe src='https://flo.uri.sh/visualisation/15886247/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:700px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'></div>
+		</div>	
+    <div class="content-wrap">
+			<p class="caption">数据来源：世界银行  <br>
+			鼠标点击底部导航栏可查看不同国家，也可就具体国家数据进行检索<br>
+        数据解释：数据库纳入了加入“一带一路”倡议的国家，呈现了各个国家的收入水平随时间的变化</p>
+		</div>
+		<div class="content-div">
+		<div class="content-wrap">
+			<p class="zhong"><span style="font-weight: bold; color:#23a6dc">立己达人，“一带一路”构建人类命运共同体重大实践。</span>“一带一路”走过的十年让古丝绸之路的盛景在新时代复苏，陆上“钢铁驼队”使“商旅不绝于途”，海上“重重帆影”再现“舶交海中，不知其数”，陆海并行的互联互通格局让共建国家共享成果。根据世界银行测算，到“一带一路”框架下交通建设项目全部实施，全球收入有望在2030年增加0.7%-2.9%，使760万人摆脱极端贫困、3200万人摆脱中度贫困。</p>
+		</div>
+	</div>
+    <div class="content-wrap">
+			<p class="subtitle2"><span>"一带一路"参与国家贫困人口占比变化趋势</span></p>
+		</div>
+          <div class="chart-div11" >
+        <iframe src='https://flo.uri.sh/visualisation/15895360/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'></div> 
+		</div>	
+    <div class="content-wrap">
+			<p class="caption">数据来源：世界银行  <br>
+			鼠标悬停在折线上可查看具体数值，也可在导航栏进行筛选<br>
+        数据解释：交互图呈现了加入“一带一路”倡议的部分国家历年贫困人口占总人口的比例，例如“马里”，10年来贫困人口比例呈明显减少趋势。</p>
+		</div>
+    		<div class="content-div">
+		<div class="content-wrap">
+			<p class="zhong">“一带一路”根植历史、面向未来，源自中国、属于世界，作为一项影响全球的世纪工程，发展的脚步不会停止，眼前的十年仅为序章。透过“一带一路”交通领域的数据烛火，其宏伟的建设蓝图徐徐展开，所取得的阶段成果令人惊叹。</p>
+            <p class="zhong">从当下观未来，我们无比期待见证“一带一路”的明天，让和平的薪火代代相传，让发展的动力源源不断，让文明的光芒熠熠生辉，建设一个持久和平、普遍安全、共同繁荣、开放包容、清洁美丽的世界，共同绘制人类命运共同体的美好画卷！</p>
+		</div>
+	</div>
+    
+	<div class="credits">
+        <p class="first"></p>
+        <p>&nbsp;</p>
+		<p><b>参考内容：</b></p>
+        <p class="a">[1]国务院新闻办公室.共建“一带一路”：构建人类命运共同体的重大实践.2023-10-10.</p>
+        <p class="a">[2]中华人民共和国商务部.2020年度中国对外承包工程统计公报.2021-09-09.</p>
+        <p class="a">[3]新华社.推动共建“一带一路”经贸合作不断迈上新台阶——专访商务部副部长郭婷婷[EB/OL].(2023-10-11)[2023.11.25].https://www.gov.cn/lianbo/bumen/202310/content_6909116.htm.</p>
+        <p class="a">中国物流与采购联合会.十年磨砺 稳步崛起——中欧班列发展10周年回顾总结之一[EB/OL].(2021-03-15)[2023.11.25].http://www.chinawuliu.com.cn/zixun/202103/15/543591.shtml.</p>
+        <p class="a">[5]新华社.中欧班列10年累计开行7.7万列[EB/OL].(2023-09-15)[2023.11.25].https://www.gov.cn/yaowen/liebiao/202309/content_6904269.htm.</p>
+        <p class="a">[6]中国国家铁路集团有限公司.中老铁路跨境货物运输保持良好发展势头[EB/OL].(2022-06-12)[2023.11.25].http://www.china-railway.com.cn/xwzx/ywsl/202206/t20220612_122048.html#:~:text=.</p>
+        <p class="a">[7]人民网.中老铁路——让老挝人民乘着火车走向世界[EB/OL].(2021-11-26)[2023.11.25].http://world.people.com.cn/n1/2021/1126/c1002-32292770.html#:~:text=.</p>
+        <p class="a">[8]人民网.【中国有约】探访世界第一大港|宁波舟山港：深度融入“一带一路”建设[EB/OL].(2023-05-18)[2023.11.25].https://news.cctv.com/2023/05/18/ARTIqU3RGj0owXXtT2PQS9dM230518.shtml.</p>
+        <p class="a">[9]中国新闻网.融入丝路“牵手”世界 宁波舟山港的十年之变[EB/OL].(2023-10-20)[2023.11.25].https://baijiahao.baidu.com/s?id=1780270011491567423&wfr=spider&for=pc.</p>
+        <p class="a">[10]中国港口协会.一带一路 大道同行 宁波舟山港：向海而兴 逐梦深蓝[EB/OL].(2023-08-18)[2023.11.25].http://www.port.org.cn/info/2023/212374.htm.</p>
+        <p class="a">[11]中国一带一路网.真实的比雷埃夫斯港：中国公司在这里上演的“绝地求生”[EB/OL].(2019-01-07)[2023.11.25].https://zhuanlan.zhihu.com/p/54228256.</p>
+        <p class="a">[12]参考消息.希腊比雷埃夫斯港十年巨变：从无名小港到地中海第一大港[EB/OL].(2023-08-18)[2023.11.25].https://new.qq.com/rain/a/20230917A04R7600.html.</p>
+        <p>&nbsp;</p>
+		<p>&nbsp;</p>
+        <p><b>作者：</b>沙莎 丁怡航 李佳艺 吴澳</p>
+		<p><b>联系我们：</b>18801285262@163.com</p>
+		<p>&nbsp;</p>
+		<p>本网页pc端和手机移动端均可浏览</p>
+        <p>@中国传媒大学</p>
+        <p>&nbsp;</p>
+      </div>  
+    </div>  	
+
+	
+</body>
+<script>
+    var highlightElements = document.querySelectorAll('.highlight');
+
+    window.addEventListener('scroll', function () {
+      highlightElements.forEach(function (element) {
+        var elementTop = element.getBoundingClientRect().top;
+        var scrollPercentage = (window.innerHeight - elementTop) / window.innerHeight;
+        if (scrollPercentage >= 0.5) {
+          element.style.color = '#23a6dc'; // 修改文字颜色为蓝色
+          element.style.fontWeight = 'bold'; // 字体加粗
+        } else {
+          element.style.color = ''; // 恢复默认文字颜色
+          element.style.fontWeight = ''; // 取消字体加粗
+        }
+      });
+    });
+  </script>
+
+
+
+</html>
